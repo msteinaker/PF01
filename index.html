@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mi Página</title>
+  <title>Formulario</title>
 </head>
 <body>
-  <h1>Hola mundo</h1>
-  <p>Bienvenido a mi página web.</p>
+  <h1>Datos Personales</h1>
+  <form id="form">
+    <input type="text" id="user" placeholder="Nombre de usuario"><br><br>
+    <input type="password" id="pass" placeholder="Contraseña"><br><br>
+    <button>Enviar</button>
+  </form>
+
+  <script>
+    document.getElementById("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      //Se envia un POST con los parámetros de id 'user'y 'pass'
+      fetch("registro.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          usuario: document.getElementById("user").value,
+          contrasena: document.getElementById("pass").value
+        })
+      });
+    });
+  </script>
 </body>
 </html>
