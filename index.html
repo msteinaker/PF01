@@ -6,9 +6,9 @@
 <body>
   <h1>Datos Personales</h1>
   <form id="form">
-    <input type="text" id="usuario" placeholder="Nombre de usuario"><br><br>
+    <input type="text" id="usu" placeholder="Nombre de usuario"><br><br>
     
-    <input type="password" id="password" placeholder="Contraseña"><br><br>
+    <input type="password" id="pass" placeholder="Contraseña"><br><br>
     
     <button>Enviar</button>
   </form>
@@ -16,13 +16,13 @@
   <script>
     document.getElementById("form").addEventListener("submit", function(e) {
       e.preventDefault();
-      // Se envía un POST con los parámetros de id 'usuario' y 'password'
+      // Se envía un POST con los parámetros de id 'usu' y 'pass'
       fetch("registro.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          usuario: document.getElementById("usuario").value,
-          contrasena: document.getElementById("password").value
+          usuario: document.getElementById("usu").value,
+          contrasena: document.getElementById("pass").value
         })
       });
     });
